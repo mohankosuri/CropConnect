@@ -7,8 +7,8 @@ import { useNavigation } from '@react-navigation/native';
 
 
 
-const Topnav = () => {
-    const [searchQuery, setSearchQuery] = React.useState('');
+const Topnav = ({handleSearch,searchQuery}) => {
+    
 
     const navigation= useNavigation()
   return (
@@ -16,7 +16,7 @@ const Topnav = () => {
     <View className="w-[270px]">
     <Searchbar
     placeholder="Search"
-    onChangeText={setSearchQuery}
+    onChangeText={handleSearch}
     value={searchQuery}
   />
     </View>

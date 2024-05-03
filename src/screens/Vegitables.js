@@ -1,5 +1,6 @@
 import { View, Text,ScrollView,StyleSheet,TouchableOpacity,Image } from 'react-native'
 import React from 'react'
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 const Vegitables = () => {
 
@@ -16,7 +17,7 @@ const Vegitables = () => {
         // Add more card data as needed
       ];
   return (
-    <View className="flex-1 bg-green-100">
+    <SafeAreaView className="flex-1 bg-green-100">
       <View className="m-4"><Text className="text-2xl font-bold">Vegitables</Text></View>
       <ScrollView contentContainerStyle={styles.container} className='bg-green-100'>
     {cardsData.map((card, index) => (
@@ -26,7 +27,7 @@ const Vegitables = () => {
       </TouchableOpacity>
     ))}
   </ScrollView>
-    </View>
+    </SafeAreaView>
   )
 }
 

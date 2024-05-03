@@ -1,6 +1,7 @@
-import React from 'react';
+import React,{useState} from 'react';
 import { View, Text, Image, StyleSheet, ScrollView, TouchableOpacity } from 'react-native';
 import Topnav from './Topnav';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 const Homescreens = ({navigation}) => {
   const cardsData = [
@@ -16,11 +17,20 @@ const Homescreens = ({navigation}) => {
     // Add more card data as needed
   ];
 
+  const [searchQuery, setSearchQuery] = useState('');
+  const [filteredCards, setFilteredCards] = useState(cardsData);
+
+  const handleSearch = (text) => {
+    setSearchQuery(text);
+    const filtered = cardsData.filter(card => card.name.toLowerCase().includes(text.toLowerCase()));
+    setFilteredCards(filtered);
+  };
+
   return (
-    <View className="flex-1 mb-12 bg-green-100">
-    <Topnav/>
+    <SafeAreaView className="flex-1 mb-12 bg-green-100">
+    <Topnav handleSearch={handleSearch} searchQuery={searchQuery}/>
     <ScrollView contentContainerStyle={styles.container} className='bg-green-100'>
-    {cardsData.map((card, index) => (
+    {filteredCards.map((card, index) => (
       <TouchableOpacity key={index} style={styles.card}>
         <Image source={card.image} style={styles.cardImage} />
         <Text style={styles.cardName}>{card.name}</Text>
@@ -28,7 +38,7 @@ const Homescreens = ({navigation}) => {
     ))}
   </ScrollView>
     
-    </View>
+    </SafeAreaView>
   );
 };
 

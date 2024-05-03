@@ -1,5 +1,6 @@
 import { View, Text,ScrollView,StyleSheet,TouchableOpacity,Image } from 'react-native'
 import React from 'react'
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 const Milk = () => {
 
@@ -10,7 +11,7 @@ const Milk = () => {
         
       ];
   return (
-    <View className="flex-1 bg-green-100">
+    <SafeAreaView className="flex-1 bg-green-100">
     <View className="m-4"><Text className="text-2xl font-bold">Milk Products</Text></View>
       <ScrollView contentContainerStyle={styles.container} className='bg-green-100'>
     {cardsData.map((card, index) => (
@@ -20,7 +21,7 @@ const Milk = () => {
       </TouchableOpacity>
     ))}
   </ScrollView>
-    </View>
+    </SafeAreaView>
   )
 }
 

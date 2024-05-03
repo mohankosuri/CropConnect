@@ -5,6 +5,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons'
 import { useNavigation } from '@react-navigation/native';
 import Fontisto from 'react-native-vector-icons/Fontisto'
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 const Profile = ({ navigation }) => {
     const [image, setImage] = useState(null);
@@ -29,7 +30,7 @@ const Profile = ({ navigation }) => {
     };
 
     return (
-        <View style={{ flex: 1 }} className="bg-green-100">
+        <SafeAreaView style={{ flex: 1 }} className="bg-green-100">
 
         <View className="flex flex-row m-10">
          <TouchableOpacity className="bg-green-800 px-2 rounded-tr-2xl rounded-bl-2xl" onPress={()=>navigation.navigate('Settings')}>
@@ -70,7 +71,7 @@ const Profile = ({ navigation }) => {
             </View>
 
             
-        </View>
+        </SafeAreaView>
     );
 }
 

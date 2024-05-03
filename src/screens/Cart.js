@@ -1,7 +1,11 @@
 import { View, Text,ScrollView,StyleSheet,TouchableOpacity,Image } from 'react-native'
 import React from 'react'
+import { SafeAreaView } from 'react-native-safe-area-context';
+import { useNavigation } from '@react-navigation/native';
 
 const Cart = () => {
+
+    const navigation=useNavigation()
 
     const cardsData = [
         { name: 'Guava', image: { uri: 'https://www.bigbasket.com/media/uploads/p/m/10000369_13-fresho-guava.jpg' } },
@@ -16,9 +20,9 @@ const Cart = () => {
         // Add more card data as needed
       ];
   return (
-    <View className="flex-1 bg-green-100">
-      <Text>Cart</Text>
-      <ScrollView contentContainerStyle={styles.container} className='bg-green-100'>
+    <SafeAreaView className="flex-1 bg-green-100 py-14">
+      <Text className="font-bold text-2xl ml-2">Cart</Text>
+      <ScrollView contentContainerStyle={styles.container} className='bg-green-100 '>
     {cardsData.map((card, index) => (
       <TouchableOpacity key={index} style={styles.card}>
         <Image source={card.image} style={styles.cardImage} />
@@ -26,7 +30,12 @@ const Cart = () => {
       </TouchableOpacity>
     ))}
   </ScrollView>
-    </View>
+
+  <View className="mb-10">
+     <TouchableOpacity onPress={()=>navigation.navigate('Uploadproduct')}><Text>Upload page</Text></TouchableOpacity>
+  
+  </View>
+    </SafeAreaView>
   )
 }
 

@@ -21,6 +21,7 @@ import Fruits from './src/screens/Fruits';
 import Vegitables from './src/screens/Vegitables';
 import Categories from './src/screens/Categories';
 import Milk from './src/screens/Milk';
+import Uploadproduct from './src/screens/Uploadproduct';
  
  
 
@@ -30,11 +31,11 @@ export default function App() {
   return (
     
     <NavigationContainer>
-    
+    <StatusBar  backgroundColor="#dcfce7"/>
     <Stack.Navigator  screenOptions={{ headerShown: false }}>
 
     <Stack.Screen name="Splash" component={SplashScreen} />
-    
+     
       <Stack.Screen name="Home" component={Homescreens} />
       <Stack.Screen name="MyTabs" component={MyTabs} />
       <Stack.Screen name="Settings" component={Settings} />
@@ -50,6 +51,7 @@ export default function App() {
       <Stack.Screen name="Vegitables" component={Vegitables} />
       <Stack.Screen name="Categories" component={Categories} />
       <Stack.Screen name="Milk" component={Milk} />
+      <Stack.Screen name="Uploadproduct" component={Uploadproduct} />
        
     </Stack.Navigator>
   </NavigationContainer>
