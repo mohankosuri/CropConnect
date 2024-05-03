@@ -14,7 +14,7 @@ const SplashScreen = ({navigation}) => {
     },6000)
   return (
     <View style={{flex: 1,justifyContent:"center"}} className="bg-green-100" >
-      <StatusBar/>
+    <StatusBar  backgroundColor="#dcfce7"/>
 
       <Animatable.View animation="zoomInUp" className="items-center mb-10">
                

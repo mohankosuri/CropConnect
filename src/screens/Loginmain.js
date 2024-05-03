@@ -1,18 +1,44 @@
 import { View, Text, TouchableOpacity, TextInput, ToastAndroid, ScrollView } from 'react-native'
-import React from 'react'
+import React,{useState} from 'react'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import { useNavigation } from '@react-navigation/native'
+import { SafeAreaView } from 'react-native-safe-area-context'
 
 const Loginmain = () => {
   const navigation = useNavigation()
+  const [mobile, setMobile] = useState('');
+  const [password, setPassword] = useState('');
 
-  const Handlesigup = () => {
+  const handleLogin = async () => {
+    try {
+      const response = await fetch('http://192.168.0.106:3000/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          mobile,
+          password,
+        }),
+      });
 
-    ToastAndroid.show('Otp sent sucessful..', ToastAndroid.SHORT);
-    navigation.navigate("Otpscreen")
-  }
+      const data = await response.json();
+      if (response.ok) {
+        // Login successful
+        ToastAndroid.show(data.message, ToastAndroid.SHORT);
+        navigation.navigate('MyTabs')
+        // Navigate to next screen or perform any action
+      } else {
+        // Login failed
+        ToastAndroid.show(data.message, ToastAndroid.SHORT);
+      }
+    } catch (error) {
+      console.error('Error:', error);
+      ToastAndroid.show('An error occurred', ToastAndroid.SHORT);
+    }
+  };
   return (
-    <View className="flex-1 bg-green-100">
+    <SafeAreaView className="flex-1 bg-green-100">
       <View className="flex flex-row m-10">
         <TouchableOpacity className="bg-green-800 px-2 rounded-tr-2xl rounded-bl-2xl" onPress={() => navigation.navigate('Startscreen')}>
           <Ionicons name='chevron-back' color={"white"} size={30} />
@@ -30,16 +56,19 @@ const Loginmain = () => {
            
           <View>
             <Text className="font-bold text-lg">Mobile</Text>
-            <TextInput className="border p-3 rounded-md" />
+            <TextInput className="border p-3 rounded-md" onChangeText={text => setMobile(text)}
+            value={mobile} />
 
           </View>
           <View>
             <Text className="font-bold text-lg" >Password</Text>
-            <TextInput className="border p-3 rounded-md" />
+            <TextInput className="border p-3 rounded-md" onChangeText={text => setPassword(text)}
+            value={password}
+            secureTextEntry/>
 
           </View>
           <View className="flex flex-row space-x-4 justify-center">
-            <TouchableOpacity className="flex bg-green-800 w-[150px] justify-center items-center p-4 rounded-md mt-10" onPress={Handlesigup}>
+            <TouchableOpacity className="flex bg-green-800 w-[150px] justify-center items-center p-4 rounded-md mt-10" onPress={handleLogin}>
               <Text className="text-white"> Login</Text>
             </TouchableOpacity>
             <TouchableOpacity className="flex bg-red-800 w-[150px] justify-center items-center p-4 rounded-md mt-10" onPress={() => navigation.navigate('Login')}>
@@ -56,7 +85,7 @@ const Loginmain = () => {
       </ScrollView>
       
 
-    </View>
+    </SafeAreaView>
   )
 }
 

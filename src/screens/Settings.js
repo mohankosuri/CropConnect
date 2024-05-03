@@ -10,7 +10,7 @@ const Settings = () => {
 
   const navigation =useNavigation()
   return (
-    <View className="flex-1 bg-green-100">
+    <SafeAreaView className="flex-1 bg-green-100 mt-10">
     <View className="mt-10 ml-10">
     
       <Text className="font-bold text-2xl">Settings</Text>
@@ -42,7 +42,7 @@ const Settings = () => {
 
      
   
-  </View>
+  </SafeAreaView>
   )
 }
 
