@@ -11,7 +11,7 @@ const Loginmain = () => {
 
   const handleLogin = async () => {
     try {
-      const response = await fetch('http://192.168.0.106:3000/login', {
+      const response = await fetch('http://192.168.0.105:3000/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -57,7 +57,7 @@ const Loginmain = () => {
           <View>
             <Text className="font-bold text-lg">Mobile</Text>
             <TextInput className="border p-3 rounded-md" onChangeText={text => setMobile(text)}
-            value={mobile} />
+            value={mobile} keyboardType='phone-pad'/>
 
           </View>
           <View>
