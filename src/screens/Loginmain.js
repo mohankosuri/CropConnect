@@ -11,7 +11,7 @@ const Loginmain = () => {
 
   const handleLogin = async () => {
     try {
-      const response = await fetch('http://192.168.0.105:3000/login', {
+      const response = await fetch('http://192.168.0.113:3000/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -76,7 +76,7 @@ const Loginmain = () => {
             </TouchableOpacity>
           </View>
         </View>
-
+ 
         <View className="flex-1  justify-center items-center flex-row space-x-4">
         <Text className="text-lg">Dont't have an Account ?</Text>
           <TouchableOpacity onPress={()=>navigation.navigate("Login")}><Text className="text-lg font-bold">Sighup</Text></TouchableOpacity>

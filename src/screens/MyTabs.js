@@ -41,6 +41,7 @@ export function MyTabs() {
         },
         tabBarActiveTintColor: 'white',
         tabBarInactiveTintColor: 'white',
+        tabBarHideOnKeyboard: true,
         headerShown:false,
         tabBarStyle: {
           height: 60,

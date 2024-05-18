@@ -24,7 +24,7 @@ const CustomerSignup = () => {
 
     const Handlesigup = async () => {
       try {
-        const response = await fetch('http://192.168.0.105:3000/signup', {
+        const response = await fetch('http://192.168.0.113:3000/signup', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
