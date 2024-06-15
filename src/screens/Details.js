@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, ScrollView } from "react-native";
 
 const Deatils = () => {
     const [data, setData] = useState([]);
 
     useEffect(() => {
         const fetchData = async () => {
-            const url = 'http:192.168.0.113:3000/product';
+            const url = 'http:192.168.0.103:3000/product';
     
             try {
                 const response = await fetch(url);
@@ -22,7 +22,7 @@ const Deatils = () => {
     }, []);
 
     return (
-        <View style={styles.container}>
+        <ScrollView className="bg-green-100 flex-1 mt-[50px]">
              
             {data.length > 0 ? (
                 data.map((item) => (
@@ -35,7 +35,7 @@ const Deatils = () => {
             ) : (
                 <Text>Loading...</Text>
             )}
-        </View>
+        </ScrollView>
     );
 };
 

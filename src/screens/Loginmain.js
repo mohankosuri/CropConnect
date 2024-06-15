@@ -1,17 +1,18 @@
 import { View, Text, TouchableOpacity, TextInput, ToastAndroid, ScrollView } from 'react-native'
-import React,{useState} from 'react'
+import React,{useState,useContext} from 'react'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import { useNavigation } from '@react-navigation/native'
 import { SafeAreaView } from 'react-native-safe-area-context'
+import { Usercontext } from '../../context/Usercontext'
 
 const Loginmain = () => {
   const navigation = useNavigation()
-  const [mobile, setMobile] = useState('');
-  const [password, setPassword] = useState('');
+ 
+  const {mobile,setMobile,password,setPassword}=useContext(Usercontext)
 
   const handleLogin = async () => {
     try {
-      const response = await fetch('http://192.168.0.113:3000/login', {
+      const response = await fetch('http://192.168.0.103:3000/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

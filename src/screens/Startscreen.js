@@ -10,7 +10,7 @@ const Startscreen = () => {
 
   return (
     <SafeAreaView className="bg-green-100 flex-1">
-      <View className="flex-1 flex justify-around my-4">
+      <View className="flex-1 flex justify-around mt-[100px]">
 
          <Text className="text-4xl font-bold text-green-800 text-center">Let's Get Started!</Text>
       </View>
@@ -21,6 +21,16 @@ const Startscreen = () => {
       loop={true}
      
       source={require('../../assets/Welcome.json')}
+  />
+      
+      </View>
+      <View style={{flex:3}} className="mx-4">
+      <LottieView
+      autoPlay={true}
+      style={{ width: '100%', height: '100%' }}
+      loop={true}
+     
+      source={require('../../assets/welcome2.json')}
   />
       
       </View>

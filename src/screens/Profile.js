@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect,useContext } from 'react';
 import { Button, Image, View, Platform, TouchableOpacity, Text } from 'react-native';
 import * as ImagePicker from 'expo-image-picker';
 import Ionicons from 'react-native-vector-icons/Ionicons';
@@ -6,11 +6,12 @@ import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons'
 import { useNavigation } from '@react-navigation/native';
 import Fontisto from 'react-native-vector-icons/Fontisto'
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { Usercontext } from '../../context/Usercontext';
 
 const Profile = ({ navigation }) => {
     const [image, setImage] = useState(null);
 
-    
+    const {mobile}=useContext(Usercontext)
 
     const pickImage = async () => {
         // No permissions request is necessary for launching the image library
@@ -59,7 +60,7 @@ const Profile = ({ navigation }) => {
                 
                 <View className="flex flex-row justify-start items-center space-x-4 mt-10">
                      <Fontisto name="mobile-alt" size={30}/>
-                  <Text className="text-lg">8688852788</Text>
+                  <Text className="text-lg">{mobile}</Text>
                 </View>
 
                 <View className="mt-10 flex flex-row justify-start items-center space-x-4">

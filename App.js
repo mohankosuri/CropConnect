@@ -1,5 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
+import React,{useState} from 'react';
 
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
@@ -22,19 +23,23 @@ import Vegitables from './src/screens/Vegitables';
 import Categories from './src/screens/Categories';
 import Milk from './src/screens/Milk';
 import Uploadproduct from './src/screens/Uploadproduct';
+import { Usercontext } from './context/Usercontext';
  
  
 
 export default function App() {
   const Tab = createBottomTabNavigator();
   const Stack = createNativeStackNavigator();
+  const [mobile, setMobile] = useState('');
+  const [password, setPassword] = useState('');
   return (
     
     <NavigationContainer>
+    <Usercontext.Provider value={{mobile,setMobile,password,setPassword}}>
     <StatusBar  backgroundColor="#dcfce7"/>
     <Stack.Navigator  screenOptions={{ headerShown: false }}>
 
-    <Stack.Screen name="Splash" component={SplashScreen} />
+      <Stack.Screen name="Splash" component={SplashScreen} />
      
       <Stack.Screen name="Home" component={Homescreens} />
       <Stack.Screen name="MyTabs" component={MyTabs} />
@@ -54,6 +59,7 @@ export default function App() {
       <Stack.Screen name="Uploadproduct" component={Uploadproduct} />
        
     </Stack.Navigator>
+    </Usercontext.Provider>
   </NavigationContainer>
   )
 }
