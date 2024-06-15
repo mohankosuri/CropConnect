@@ -1,17 +1,18 @@
 import { View, Text, TouchableOpacity, TextInput, ToastAndroid, ScrollView } from 'react-native'
-import React,{useState} from 'react'
+import React,{useState,useContext} from 'react'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import { useNavigation } from '@react-navigation/native'
 import { SafeAreaView } from 'react-native-safe-area-context'
+import { Usercontext } from '../../context/Usercontext'
 
 const Loginmain = () => {
   const navigation = useNavigation()
-  const [mobile, setMobile] = useState('');
-  const [password, setPassword] = useState('');
+ 
+  const {mobile,setMobile,password,setPassword}=useContext(Usercontext)
 
   const handleLogin = async () => {
     try {
-      const response = await fetch('http://192.168.0.106:3000/login', {
+      const response = await fetch('http://192.168.0.103:3000/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -57,7 +58,7 @@ const Loginmain = () => {
           <View>
             <Text className="font-bold text-lg">Mobile</Text>
             <TextInput className="border p-3 rounded-md" onChangeText={text => setMobile(text)}
-            value={mobile} />
+            value={mobile} keyboardType='phone-pad'/>
 
           </View>
           <View>
@@ -76,7 +77,7 @@ const Loginmain = () => {
             </TouchableOpacity>
           </View>
         </View>
-
+ 
         <View className="flex-1  justify-center items-center flex-row space-x-4">
         <Text className="text-lg">Dont't have an Account ?</Text>
           <TouchableOpacity onPress={()=>navigation.navigate("Login")}><Text className="text-lg font-bold">Sighup</Text></TouchableOpacity>

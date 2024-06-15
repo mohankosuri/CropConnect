@@ -31,10 +31,7 @@ const Cart = () => {
     ))}
   </ScrollView>
 
-  <View className="mb-10">
-     <TouchableOpacity onPress={()=>navigation.navigate('Uploadproduct')}><Text>Upload page</Text></TouchableOpacity>
   
-  </View>
     </SafeAreaView>
   )
 }

@@ -2,6 +2,7 @@ import React,{useState} from 'react';
 import { View, Text, Image, StyleSheet, ScrollView, TouchableOpacity } from 'react-native';
 import Topnav from './Topnav';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import Uploadproduct from './Uploadproduct';
 
 const Homescreens = ({navigation}) => {
   const cardsData = [
@@ -29,6 +30,12 @@ const Homescreens = ({navigation}) => {
   return (
     <SafeAreaView className="flex-1 mb-12 bg-green-100">
     <Topnav handleSearch={handleSearch} searchQuery={searchQuery}/>
+    <View className="flex justify-center items-center mb-2">
+     <TouchableOpacity onPress={()=>navigation.navigate('Uploadproduct')} className="bg-green-300 px-10 py-6 rounded-md">
+      <Text className="font-bold">Upload Product</Text>
+     </TouchableOpacity>
+  
+  </View>
     <ScrollView contentContainerStyle={styles.container} className='bg-green-100'>
     {filteredCards.map((card, index) => (
       <TouchableOpacity key={index} style={styles.card}>

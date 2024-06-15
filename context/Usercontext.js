@@ -1,4 +1,4 @@
-import React,{useContext} from "react";
+import React,{createContext} from "react";
 
 
-export const Usercontext=useContext(undefined)
+export const Usercontext=createContext(undefined)
