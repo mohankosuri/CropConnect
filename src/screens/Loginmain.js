@@ -1,9 +1,10 @@
-import { View, Text, TouchableOpacity, TextInput, ToastAndroid, ScrollView } from 'react-native'
+import { View, Text, TouchableOpacity, TextInput, ToastAndroid, ScrollView,ImageBackground } from 'react-native'
 import React,{useState,useContext} from 'react'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import { useNavigation } from '@react-navigation/native'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { Usercontext } from '../../context/Usercontext'
+import Loginback from '../../assets/loginback.png'
 
 const Loginmain = () => {
   const navigation = useNavigation()
@@ -40,6 +41,7 @@ const Loginmain = () => {
   };
   return (
     <SafeAreaView className="flex-1 bg-green-100">
+     
       <View className="flex flex-row m-10">
         <TouchableOpacity className="bg-green-800 px-2 rounded-tr-2xl rounded-bl-2xl" onPress={() => navigation.navigate('Startscreen')}>
           <Ionicons name='chevron-back' color={"white"} size={30} />
@@ -49,7 +51,7 @@ const Loginmain = () => {
       </View>
       <ScrollView>
       <View className="flex justify-center items-center mt-[100px]">
-        <Text className="font-bold text-4xl tracking-widest">Login</Text>
+        <Text className="font-bold text-5xl tracking-widest">Login</Text>
       </View>
 
       <View className="flex-1 mt-10 mx-4">
@@ -85,7 +87,7 @@ const Loginmain = () => {
       </View>
       </ScrollView>
       
-
+    
     </SafeAreaView>
   )
 }
