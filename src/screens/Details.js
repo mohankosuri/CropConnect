@@ -6,7 +6,7 @@ const Deatils = () => {
 
     useEffect(() => {
         const fetchData = async () => {
-            const url = 'http:192.168.0.103:3000/product';
+            const url = 'http:192.168.0.123:3000/product';
     
             try {
                 const response = await fetch(url);

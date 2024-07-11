@@ -15,23 +15,23 @@ const Settings = () => {
     
       <Text className="font-bold text-2xl">Settings</Text>
     </View>
-    <View className="m-[100px]">
+    <View className="m-[50px]">
 
-    <TouchableOpacity className="flex flex-row space-x-10 justify-start items-center" onPress={()=>navigation.navigate('Profile')}>
-    <Ionicons name="person" size={30}/>
-    <Text className="font-bold text-lg">Profile</Text>
+    <TouchableOpacity className="flex flex-row space-x-10 justify-start items-center bg-green-800 py-4 px-4 w-[300px] rounded-md" onPress={()=>navigation.navigate('Profile')}>
+    <Ionicons name="person" size={30} color={"white"}/>
+    <Text className="font-bold text-lg text-white">Profile</Text>
      
    
    </TouchableOpacity>
-   <TouchableOpacity className="flex flex-row space-x-10 justify-start items-center mt-5" onPress={()=>navigation.navigate('Details')}>
-   <Ionicons name="person" size={30}/>
-   <Text className="font-bold text-lg">Deatils</Text>
+   <TouchableOpacity className="flex flex-row space-x-10 justify-start items-center mt-5 bg-green-800 py-4 px-4 w-[300px] rounded-md" onPress={()=>navigation.navigate('Details')}>
+   <Ionicons name="person" size={30} color={"white"}/>
+   <Text className="font-bold text-lg text-white">Deatils</Text>
     
   
   </TouchableOpacity>
-  <TouchableOpacity className="flex flex-row space-x-10 justify-start items-center mt-5" onPress={()=>navigation.navigate('Categories')}>
-  <MaterialIcons name="category" size={30}/>
-  <Text className="font-bold text-lg">Category</Text>
+  <TouchableOpacity className="flex flex-row space-x-10 justify-start items-center mt-5 bg-green-800 py-4 px-4 w-[300px] rounded-md" onPress={()=>navigation.navigate('Categories')}>
+  <MaterialIcons name="category" size={30} color={"white"}/>
+  <Text className="font-bold text-lg text-white">Category</Text>
    
  
  </TouchableOpacity>

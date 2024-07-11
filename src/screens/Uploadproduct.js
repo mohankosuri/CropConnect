@@ -22,7 +22,7 @@ const Uploadproduct = () => {
         const { productname, description, price } = values;
 
         try {
-            const response = await fetch('http://192.168.29.74:3000/product', {
+            const response = await fetch('http://192.168.0.123:3000/product', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

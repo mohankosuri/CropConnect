@@ -27,7 +27,7 @@ const FormerSighupscreen = () => {
 
   const Handlesigup = async () => {
     try {
-      const response = await fetch('http://192.168.0.103:3000/signup', {
+      const response = await fetch('http://192.168.0.123:3000/signup', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
